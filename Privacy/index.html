@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Privacy Policy - Flex Notes</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --bg-color: #0b0f19;
+            --card-bg: #151c2e;
+            --text-color: #e2e8f0;
+            --text-muted: #94a3b8;
+            --primary: #6366f1;
+            --primary-hover: #4f46e5;
+            --accent: #38bdf8;
+            --border: rgba(99, 102, 241, 0.15);
+            --gradient: linear-gradient(135deg, #6366f1 0%, #38bdf8 100%);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Outfit', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+            padding: 2rem 1rem;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .container {
+            max-width: 800px;
+            width: 100%;
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: 24px;
+            padding: 3rem;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3),
+                        0 0 80px rgba(99, 102, 241, 0.05);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .container::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: var(--gradient);
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .logo-container {
+            width: 96px;
+            height: 96px;
+            margin: 0 auto 1.5rem;
+            border-radius: 22px;
+            background: var(--gradient);
+            padding: 3px;
+            box-shadow: 0 8px 16px rgba(99, 102, 241, 0.2);
+            transition: transform 0.3s ease;
+        }
+
+        .logo-container:hover {
+            transform: scale(1.05);
+        }
+
+        .logo-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 19px;
+            background-color: var(--card-bg);
+        }
+
+        h1 {
+            font-size: 2.25rem;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 0.5rem;
+        }
+
+        .subtitle {
+            font-size: 1rem;
+            color: var(--text-muted);
+            font-weight: 400;
+        }
+
+        section {
+            margin-bottom: 2.5rem;
+        }
+
+        h2 {
+            font-size: 1.4rem;
+            font-weight: 600;
+            color: var(--accent);
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        p, li {
+            color: var(--text-color);
+            opacity: 0.9;
+            margin-bottom: 1rem;
+            font-weight: 300;
+        }
+
+        ul {
+            list-style-type: none;
+            margin-left: 0.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        ul li {
+            position: relative;
+            padding-left: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        ul li::before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: var(--accent);
+            font-weight: 700;
+        }
+
+        .badge {
+            display: inline-block;
+            padding: 0.25rem 0.75rem;
+            border-radius: 99px;
+            background: rgba(56, 189, 248, 0.1);
+            color: var(--accent);
+            font-size: 0.85rem;
+            font-weight: 500;
+            margin-top: 1.5rem;
+            border: 1px solid rgba(56, 189, 248, 0.2);
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 4rem;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(226, 232, 240, 0.08);
+            font-size: 0.875rem;
+            color: var(--text-muted);
+        }
+
+        @media (max-width: 640px) {
+            body {
+                padding: 1rem;
+            }
+            .container {
+                padding: 2rem 1.5rem;
+                border-radius: 16px;
+            }
+            h1 {
+                font-size: 1.75rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="logo-container">
+                <img src="icon.png" alt="Flex Notes Logo">
+            </div>
+            <h1>Privacy Policy</h1>
+            <p class="subtitle">Effective Date: June 27, 2026</p>
+        </header>
+
+        <section>
+            <h2>1. Introduction</h2>
+            <p>Welcome to <strong>Flex Notes</strong>. We value your privacy and are committed to protecting any personal information you may share. This Privacy Policy details how we handle information in our application.</p>
+        </section>
+
+        <section>
+            <h2>2. Information Collection and Use</h2>
+            <p><strong>Flex Notes is built as a local-first application.</strong></p>
+            <ul>
+                <li><strong>No Personal Data Collection:</strong> We do not collect, store, or transmit any personal identification information (such as your name, email, phone number, or location).</li>
+                <li><strong>Local Storage Only:</strong> All note entries, configurations, and application data are saved locally on your device storage. We have no access to your notes or private files.</li>
+                <li><strong>No Network Communication:</strong> The app operates strictly offline. No note content is uploaded to any servers, cloud environments, or external databases.</li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>3. Third-Party Services</h2>
+            <p>Flex Notes does not integrate any third-party SDKs, ad networks, tracking technologies, or analytical frameworks. Your usage remains entirely private and untracked.</p>
+        </section>
+
+        <section>
+            <h2>4. Data Security</h2>
+            <p>Since your notes are stored locally on your own device, the security of your data depends on your device's security configurations (such as screen locks, device encryption, and application permission management). We recommend securing your device to prevent unauthorized physical access to your notes.</p>
+        </section>
+
+        <section>
+            <h2>5. Changes to This Privacy Policy</h2>
+            <p>We may update our Privacy Policy from time to time. Any changes will be posted directly on this page, and the effective date will be updated accordingly.</p>
+        </section>
+
+        <section>
+            <h2>6. Contact Us</h2>
+            <p>If you have any questions or feedback regarding this Privacy Policy, please feel free to reach out via your developer contact channel on the Google Play Store.</p>
+            <span class="badge">Flex Notes - Local & Secure</span>
+        </section>
+
+        <footer>
+            <p>&copy; 2026 Flex Notes. All rights reserved.</p>
+        </footer>
+    </div>
+</body>
+</html>
