@@ -3,23 +3,27 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Privacy Policy - Flex Notes</title>
+    <title>Flex Notes - Private Notes & Privacy Policy</title>
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
     
     <style>
         :root {
-            --bg-color: #0b0f19;
-            --card-bg: #151c2e;
-            --text-color: #e2e8f0;
-            --text-muted: #94a3b8;
-            --primary: #6366f1;
-            --primary-hover: #4f46e5;
-            --accent: #38bdf8;
-            --border: rgba(99, 102, 241, 0.15);
-            --gradient: linear-gradient(135deg, #6366f1 0%, #38bdf8 100%);
+            --bg-color: #f8fafc;
+            --card-bg: #ffffff;
+            --text-color: #0f172a;
+            --text-muted: #64748b;
+            --primary: #4f46e5;
+            --primary-light: #e0e7ff;
+            --accent: #0284c7;
+            --accent-light: #e0f2fe;
+            --success: #16a34a;
+            --success-light: #dcfce7;
+            --border: rgba(99, 102, 241, 0.08);
+            --gradient: linear-gradient(135deg, #4f46e5 0%, #0284c7 100%);
+            --shadow: 0 10px 30px -10px rgba(79, 70, 229, 0.12);
         }
 
         * {
@@ -33,7 +37,7 @@
             background-color: var(--bg-color);
             color: var(--text-color);
             line-height: 1.6;
-            padding: 2rem 1rem;
+            padding: 3rem 1.5rem;
             min-height: 100vh;
             display: flex;
             justify-content: center;
@@ -41,14 +45,14 @@
         }
 
         .container {
-            max-width: 800px;
+            max-width: 900px;
             width: 100%;
             background: var(--card-bg);
             border: 1px solid var(--border);
-            border-radius: 24px;
-            padding: 3rem;
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3),
-                        0 0 80px rgba(99, 102, 241, 0.05);
+            border-radius: 32px;
+            padding: 4rem;
+            box-shadow: 0 30px 60px -15px rgba(15, 23, 42, 0.08),
+                        0 0 50px 0 rgba(99, 102, 241, 0.03);
             position: relative;
             overflow: hidden;
         }
@@ -59,126 +63,215 @@
             top: 0;
             left: 0;
             right: 0;
-            height: 4px;
+            height: 6px;
             background: var(--gradient);
         }
 
         header {
             text-align: center;
-            margin-bottom: 3rem;
+            margin-bottom: 4rem;
         }
 
         .logo-container {
-            width: 96px;
-            height: 96px;
+            width: 110px;
+            height: 110px;
             margin: 0 auto 1.5rem;
-            border-radius: 22px;
+            border-radius: 26px;
             background: var(--gradient);
-            padding: 3px;
-            box-shadow: 0 8px 16px rgba(99, 102, 241, 0.2);
-            transition: transform 0.3s ease;
+            padding: 4px;
+            box-shadow: 0 12px 24px -6px rgba(79, 70, 229, 0.3);
+            transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
         }
 
         .logo-container:hover {
-            transform: scale(1.05);
+            transform: scale(1.08) rotate(2deg);
         }
 
         .logo-container img {
             width: 100%;
             height: 100%;
             object-fit: cover;
-            border-radius: 19px;
+            border-radius: 22px;
             background-color: var(--card-bg);
         }
 
         h1 {
-            font-size: 2.25rem;
-            font-weight: 700;
-            letter-spacing: -0.02em;
+            font-size: 2.75rem;
+            font-weight: 900;
+            letter-spacing: -0.03em;
             background: var(--gradient);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             margin-bottom: 0.5rem;
         }
 
+        .tagline {
+            font-size: 1.2rem;
+            font-weight: 500;
+            color: var(--primary);
+            margin-bottom: 0.25rem;
+        }
+
         .subtitle {
-            font-size: 1rem;
+            font-size: 0.95rem;
             color: var(--text-muted);
             font-weight: 400;
         }
 
+        /* Divider */
+        .divider {
+            height: 1px;
+            background: linear-gradient(to right, transparent, rgba(99, 102, 241, 0.15), transparent);
+            margin: 3rem 0;
+        }
+
+        /* Intro section */
+        .intro-box {
+            background: linear-gradient(135deg, rgba(79, 70, 229, 0.02) 0%, rgba(2, 132, 199, 0.02) 100%);
+            border-radius: 20px;
+            padding: 2rem;
+            border: 1px dashed rgba(99, 102, 241, 0.15);
+            margin-bottom: 3rem;
+            text-align: center;
+        }
+
+        .intro-box p {
+            font-size: 1.1rem;
+            color: #334155;
+            font-weight: 400;
+            margin-bottom: 0;
+        }
+
+        /* Features grid */
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.5rem;
+            margin-bottom: 3rem;
+        }
+
+        .feature-card {
+            background: #f8fafc;
+            border: 1px solid rgba(15, 23, 42, 0.04);
+            border-radius: 20px;
+            padding: 1.75rem;
+            transition: all 0.3s ease;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-4px);
+            background: #ffffff;
+            box-shadow: var(--shadow);
+            border-color: rgba(99, 102, 241, 0.12);
+        }
+
+        .feature-icon {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 48px;
+            height: 48px;
+            border-radius: 12px;
+            font-size: 1.5rem;
+            margin-bottom: 1.25rem;
+        }
+
+        .feature-card h3 {
+            font-size: 1.2rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            color: var(--text-color);
+        }
+
+        .feature-card p {
+            font-size: 0.95rem;
+            color: var(--text-muted);
+            font-weight: 300;
+            margin-bottom: 0;
+        }
+
+        /* Feature color schemes */
+        .feat-offline .feature-icon { background: var(--accent-light); color: var(--accent); }
+        .feat-spaces .feature-icon { background: var(--primary-light); color: var(--primary); }
+        .feat-custom .feature-icon { background: #fae8ff; color: #d946ef; }
+        .feat-stats .feature-icon { background: var(--success-light); color: var(--success); }
+
+        /* Typography */
         section {
-            margin-bottom: 2.5rem;
+            margin-bottom: 3rem;
         }
 
         h2 {
-            font-size: 1.4rem;
-            font-weight: 600;
-            color: var(--accent);
-            margin-bottom: 1rem;
+            font-size: 1.6rem;
+            font-weight: 800;
+            color: var(--text-color);
+            margin-bottom: 1.25rem;
             display: flex;
             align-items: center;
-            gap: 0.5rem;
+            gap: 0.75rem;
+            letter-spacing: -0.02em;
         }
 
         p, li {
-            color: var(--text-color);
-            opacity: 0.9;
-            margin-bottom: 1rem;
-            font-weight: 300;
+            color: #334155;
+            margin-bottom: 1.25rem;
+            font-weight: 400;
         }
 
         ul {
             list-style-type: none;
-            margin-left: 0.5rem;
+            margin-left: 0.25rem;
             margin-bottom: 1.5rem;
         }
 
         ul li {
             position: relative;
-            padding-left: 1.5rem;
-            margin-bottom: 0.5rem;
+            padding-left: 1.75rem;
+            margin-bottom: 0.75rem;
         }
 
         ul li::before {
-            content: "✓";
+            content: "✦";
             position: absolute;
             left: 0;
-            color: var(--accent);
+            color: var(--primary);
             font-weight: 700;
         }
 
         .badge {
             display: inline-block;
-            padding: 0.25rem 0.75rem;
+            padding: 0.35rem 1rem;
             border-radius: 99px;
-            background: rgba(56, 189, 248, 0.1);
-            color: var(--accent);
-            font-size: 0.85rem;
-            font-weight: 500;
-            margin-top: 1.5rem;
-            border: 1px solid rgba(56, 189, 248, 0.2);
+            background: var(--primary-light);
+            color: var(--primary);
+            font-size: 0.875rem;
+            font-weight: 600;
+            margin-top: 1rem;
+            border: 1px solid rgba(79, 70, 229, 0.1);
         }
 
         footer {
             text-align: center;
-            margin-top: 4rem;
-            padding-top: 2rem;
-            border-top: 1px solid rgba(226, 232, 240, 0.08);
-            font-size: 0.875rem;
+            margin-top: 5rem;
+            padding-top: 2.5rem;
+            border-top: 1px solid rgba(15, 23, 42, 0.06);
+            font-size: 0.9rem;
             color: var(--text-muted);
         }
 
-        @media (max-width: 640px) {
+        @media (max-width: 768px) {
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
             body {
-                padding: 1rem;
+                padding: 1.5rem 1rem;
             }
             .container {
-                padding: 2rem 1.5rem;
-                border-radius: 16px;
+                padding: 2.5rem 1.5rem;
+                border-radius: 24px;
             }
             h1 {
-                font-size: 1.75rem;
+                font-size: 2.25rem;
             }
         }
     </style>
@@ -187,46 +280,69 @@
     <div class="container">
         <header>
             <div class="logo-container">
-                <img src="icon.png" alt="Flex Notes Logo">
+                <img src="icon.png" alt="Flex Notes App Icon">
             </div>
-            <h1>Privacy Policy</h1>
+            <h1>Flex Notes</h1>
+            <p class="tagline">Private notes. Zero cloud. All yours.</p>
             <p class="subtitle">Effective Date: June 27, 2026</p>
         </header>
 
-        <section>
-            <h2>1. Introduction</h2>
-            <p>Welcome to <strong>Flex Notes</strong>. We value your privacy and are committed to protecting any personal information you may share. This Privacy Policy details how we handle information in our application.</p>
-        </section>
+        <div class="intro-box">
+            <p>Every remarkable achievement begins with a single thought. <strong>Flex Notes</strong> is more than just a notebook—it's a private space for your ideas, plans, goals, memories, and moments of inspiration. Designed with elegant minimalism, it keeps you organized and lets your thoughts live securely on your device.</p>
+        </div>
 
         <section>
-            <h2>2. Information Collection and Use</h2>
-            <p><strong>Flex Notes is built as a local-first application.</strong></p>
+            <h2>⚡ Main App Features</h2>
+            <div class="features-grid">
+                <div class="feature-card feat-offline">
+                    <div class="feature-icon">🔒</div>
+                    <h3>100% Offline & Private</h3>
+                    <p>All note contents are stored strictly locally on your device database. No server syncs, no cloud tracking, and zero internet required.</p>
+                </div>
+                
+                <div class="feature-card feat-spaces">
+                    <div class="feature-icon">📁</div>
+                    <h3>Spaces & Folders</h3>
+                    <p>Organize your thoughts into custom workspaces. Define categories, folders, and favorites to structure your ideas dynamically.</p>
+                </div>
+
+                <div class="feature-card feat-custom">
+                    <div class="feature-icon">🎨</div>
+                    <h3>Visual Studio Modes</h3>
+                    <p>Express yourself with color tags, beautiful background gradients, and a sleek Dark Studio mode that protects your eyes in low light.</p>
+                </div>
+
+                <div class="feature-card feat-stats">
+                    <div class="feature-icon">📈</div>
+                    <h3>Writing Insights</h3>
+                    <p>Track your productivity with real-time word count details, space distributions, and writing stats generated on-device.</p>
+                </div>
+            </div>
+        </section>
+
+        <div class="divider"></div>
+
+        <section>
+            <h2>🛡️ Privacy Policy</h2>
+            <p>Because your trust is our priority, Flex Notes enforces a transparent, local-first policy regarding how your data is handled:</p>
+            
             <ul>
-                <li><strong>No Personal Data Collection:</strong> We do not collect, store, or transmit any personal identification information (such as your name, email, phone number, or location).</li>
-                <li><strong>Local Storage Only:</strong> All note entries, configurations, and application data are saved locally on your device storage. We have no access to your notes or private files.</li>
-                <li><strong>No Network Communication:</strong> The app operates strictly offline. No note content is uploaded to any servers, cloud environments, or external databases.</li>
+                <li><strong>No Personal Information Collected:</strong> We do not ask for, gather, store, or share any personal registration data (such as emails, names, phone numbers, or account profiles).</li>
+                <li><strong>Strictly Local Storage:</strong> All files, notes, settings, and database configurations remain inside your device's secure app sandbox. We have no backend server and no access to your documents.</li>
+                <li><strong>Local Backups:</strong> The app supports generating local JSON backup files. These backups are stored in your device storage and are completely managed by you.</li>
+                <li><strong>No Third-Party Access:</strong> We do not integrate tracking analytics, advertisement networks, or user profiling SDKs. Your app stays clean, light, and private.</li>
             </ul>
         </section>
 
         <section>
-            <h2>3. Third-Party Services</h2>
-            <p>Flex Notes does not integrate any third-party SDKs, ad networks, tracking technologies, or analytical frameworks. Your usage remains entirely private and untracked.</p>
+            <h2>🔐 Data Security & Safety</h2>
+            <p>Security is a shared responsibility. Because Flex Notes stores your information locally on your device, we recommend using standard device locks (fingerprint, face unlock, PIN) and using built-in system encryption to protect your device from unauthorized physical access.</p>
         </section>
 
         <section>
-            <h2>4. Data Security</h2>
-            <p>Since your notes are stored locally on your own device, the security of your data depends on your device's security configurations (such as screen locks, device encryption, and application permission management). We recommend securing your device to prevent unauthorized physical access to your notes.</p>
-        </section>
-
-        <section>
-            <h2>5. Changes to This Privacy Policy</h2>
-            <p>We may update our Privacy Policy from time to time. Any changes will be posted directly on this page, and the effective date will be updated accordingly.</p>
-        </section>
-
-        <section>
-            <h2>6. Contact Us</h2>
-            <p>If you have any questions or feedback regarding this Privacy Policy, please feel free to reach out via your developer contact channel on the Google Play Store.</p>
-            <span class="badge">Flex Notes - Local & Secure</span>
+            <h2>✉️ Contact & Inquiries</h2>
+            <p>If you have any questions, suggestions, or concerns regarding the app or this Privacy Policy, please contact the developer via the official developer profile on the Google Play Store.</p>
+            <span class="badge">Privacy Protected &middot; Flex Notes</span>
         </section>
 
         <footer>
