@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flex Notes - Private Notes, Zero Cloud</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --bg-color: #f8fafc;
+            --card-bg: #ffffff;
+            --text-color: #0f172a;
+            --text-muted: #64748b;
+            --primary: #4f46e5;
+            --primary-light: #e0e7ff;
+            --accent: #0284c7;
+            --accent-light: #e0f2fe;
+            --success: #16a34a;
+            --success-light: #dcfce7;
+            --border: rgba(99, 102, 241, 0.08);
+            --gradient: linear-gradient(135deg, #4f46e5 0%, #0284c7 100%);
+            --shadow: 0 20px 40px -15px rgba(79, 70, 229, 0.12);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Outfit', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+            padding: 0;
+            overflow-x: hidden;
+        }
+
+        .navbar {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1.5rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            text-decoration: none;
+            color: var(--text-color);
+            font-weight: 800;
+            font-size: 1.5rem;
+        }
+
+        .brand img {
+            width: 40px;
+            height: 40px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(79, 70, 229, 0.25);
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-muted);
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: color 0.2s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+
+        /* Hero Section */
+        .hero {
+            max-width: 1200px;
+            margin: 4rem auto;
+            padding: 0 2rem;
+            display: grid;
+            grid-template-columns: 1.1fr 0.9fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .hero-content h1 {
+            font-size: 3.75rem;
+            font-weight: 900;
+            line-height: 1.15;
+            letter-spacing: -0.04em;
+            margin-bottom: 1.5rem;
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero-content p {
+            font-size: 1.25rem;
+            color: var(--text-muted);
+            margin-bottom: 2.5rem;
+            font-weight: 300;
+            max-width: 540px;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1rem;
+            align-items: center;
+        }
+
+        .btn-primary {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: var(--gradient);
+            color: white;
+            padding: 1rem 2rem;
+            border-radius: 99px;
+            font-weight: 600;
+            text-decoration: none;
+            box-shadow: 0 10px 20px -5px rgba(79, 70, 229, 0.3);
+            transition: all 0.3s ease;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 15px 30px -5px rgba(79, 70, 229, 0.4);
+        }
+
+        .btn-secondary {
+            display: inline-flex;
+            align-items: center;
+            background: rgba(15, 23, 42, 0.05);
+            color: var(--text-color);
+            padding: 1rem 2rem;
+            border-radius: 99px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .btn-secondary:hover {
+            background: rgba(15, 23, 42, 0.08);
+        }
+
+        .hero-preview {
+            position: relative;
+            display: flex;
+            justify-content: center;
+        }
+
+        .hero-preview img {
+            width: 100%;
+            max-width: 380px;
+            border-radius: 36px;
+            box-shadow: 0 30px 60px -15px rgba(15, 23, 42, 0.15),
+                        0 0 50px rgba(99, 102, 241, 0.05);
+            border: 8px solid white;
+            transition: transform 0.5s ease;
+        }
+
+        .hero-preview:hover img {
+            transform: scale(1.02) rotate(-1deg);
+        }
+
+        /* Features Section */
+        .features-section {
+            background: #ffffff;
+            border-top: 1px solid rgba(15, 23, 42, 0.04);
+            border-bottom: 1px solid rgba(15, 23, 42, 0.04);
+            padding: 6rem 2rem;
+        }
+
+        .section-header {
+            text-align: center;
+            max-width: 600px;
+            margin: 0 auto 4rem;
+        }
+
+        .section-header h2 {
+            font-size: 2.25rem;
+            font-weight: 800;
+            letter-spacing: -0.03em;
+            margin-bottom: 1rem;
+        }
+
+        .section-header p {
+            color: var(--text-muted);
+            font-size: 1.1rem;
+            font-weight: 300;
+        }
+
+        .features-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+        }
+
+        .feature-card {
+            background: #f8fafc;
+            border: 1px solid rgba(15, 23, 42, 0.02);
+            border-radius: 24px;
+            padding: 2.5rem 2rem;
+            transition: all 0.3s ease;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+            background: #ffffff;
+            box-shadow: var(--shadow);
+            border-color: rgba(99, 102, 241, 0.1);
+        }
+
+        .feature-icon {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 56px;
+            height: 56px;
+            border-radius: 16px;
+            font-size: 1.75rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .feature-card h3 {
+            font-size: 1.25rem;
+            font-weight: 700;
+            margin-bottom: 0.75rem;
+        }
+
+        .feature-card p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            line-height: 1.6;
+            font-weight: 300;
+        }
+
+        /* Feature color schemes */
+        .feat-offline .feature-icon { background: var(--accent-light); color: var(--accent); }
+        .feat-spaces .feature-icon { background: var(--primary-light); color: var(--primary); }
+        .feat-studio .feature-icon { background: #fae8ff; color: #d946ef; }
+        .feat-stats .feature-icon { background: var(--success-light); color: var(--success); }
+        .feat-backup .feature-icon { background: #ffe4e6; color: #f43f5e; }
+        .feat-bin .feature-icon { background: #fef3c7; color: #d97706; }
+
+        /* Showcase Banner */
+        .showcase-banner {
+            max-width: 1200px;
+            margin: 6rem auto;
+            padding: 0 2rem;
+            text-align: center;
+        }
+
+        .showcase-banner h2 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            letter-spacing: -0.03em;
+            margin-bottom: 1.5rem;
+        }
+
+        .showcase-banner p {
+            font-size: 1.2rem;
+            color: var(--text-muted);
+            max-width: 700px;
+            margin: 0 auto 3rem;
+            font-weight: 300;
+        }
+
+        /* Footer */
+        footer {
+            background: #0f172a;
+            color: #94a3b8;
+            padding: 4rem 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .footer-brand {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: white;
+            font-weight: 700;
+            text-decoration: none;
+        }
+
+        .footer-brand img {
+            width: 32px;
+            height: 32px;
+            border-radius: 8px;
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .footer-links a {
+            color: #94a3b8;
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: color 0.2s ease;
+        }
+
+        .footer-links a:hover {
+            color: white;
+        }
+
+        @media (max-width: 968px) {
+            .hero {
+                grid-template-columns: 1fr;
+                text-align: center;
+                gap: 3rem;
+                margin: 2rem auto;
+            }
+            .hero-content p {
+                margin: 0 auto 2.5rem;
+            }
+            .cta-buttons {
+                justify-content: center;
+            }
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+            .footer-content {
+                flex-direction: column;
+                gap: 2rem;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    
+    <nav class="navbar">
+        <a href="#" class="brand">
+            <img src="icon main.png" alt="Flex Notes Logo">
+            <span>Flex Notes</span>
+        </a>
+        <div class="nav-links">
+            <a href="Privacy/">Privacy Policy</a>
+        </div>
+    </nav>
+
+    <main>
+        <!-- Hero -->
+        <section class="hero">
+            <div class="hero-content">
+                <h1>Private Notes.<br>Zero Cloud.<br>All Yours.</h1>
+                <p>Capture your thoughts, plan your goals, organize workspaces, and keep writing metrics. Everything stays safe on your device storage—100% offline.</p>
+                <div class="cta-buttons">
+                    <a href="#" class="btn-primary">
+                        <span>Get App Bundle</span>
+                    </a>
+                    <a href="Privacy/" class="btn-secondary">Privacy Policy</a>
+                </div>
+            </div>
+            <div class="hero-preview">
+                <img src="flexnotes.png" alt="Flex Notes Interface Showcase">
+            </div>
+        </section>
+
+        <!-- Features -->
+        <section class="features-section">
+            <div class="section-header">
+                <h2>Designed for Pure Focus</h2>
+                <p>No account logins, no cloud tracking, and zero notifications. Just your ideas having a home.</p>
+            </div>
+            
+            <div class="features-grid">
+                <div class="feature-card feat-offline">
+                    <div class="feature-icon">🔒</div>
+                    <h3>100% Offline first</h3>
+                    <p>All notes reside securely in your app's local sandbox database. Absolutely no internet connection required to write or read.</p>
+                </div>
+
+                <div class="feature-card feat-spaces">
+                    <div class="feature-icon">📁</div>
+                    <h3>Workspaces & Spaces</h3>
+                    <p>Define dedicated spaces, categorize your thoughts, folder structures, and favorite notes to keep your projects neatly partitioned.</p>
+                </div>
+
+                <div class="feature-card feat-studio">
+                    <div class="feature-icon">🎨</div>
+                    <h3>Studio Themes</h3>
+                    <p>Customise note cards with solid colors, gorgeous gradients, and toggle a deep Dark Studio mode for comfortable writing in low light.</p>
+                </div>
+
+                <div class="feature-card feat-stats">
+                    <div class="feature-icon">📈</div>
+                    <h3>Writing Analytics</h3>
+                    <p>Gain insights into your productivity with word counts, note counts, and space statistics generated instantly on your device.</p>
+                </div>
+
+                <div class="feature-card feat-backup">
+                    <div class="feature-icon">💾</div>
+                    <h3>Local Backups</h3>
+                    <p>Export your database to encrypted JSON files locally. Restore your backups anytime directly from your storage card.</p>
+                </div>
+
+                <div class="feature-card feat-bin">
+                    <div class="feature-icon">🗑️</div>
+                    <h3>Archive & Recycle Bin</h3>
+                    <p>Clear out clutter from your main notes dashboard. Move old notes to archives or send them to the Recycle Bin to restore later.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Showcase Banner -->
+        <section class="showcase-banner">
+            <h2>Start capturing today</h2>
+            <p>Ready to structure your goals, plan a trip, draft essays, or journal your memories? Flex Notes grows alongside your journey without tracking you.</p>
+            <a href="#" class="btn-primary">Download Flex Notes</a>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <a href="#" class="footer-brand">
+                <img src="icon main.png" alt="Flex Notes Logo">
+                <span>Flex Notes</span>
+            </a>
+            <div class="footer-links">
+                <a href="Privacy/">Privacy Policy</a>
+            </div>
+            <p>&copy; 2026 Flex Notes. All rights reserved.</p>
+        </div>
+    </footer>
+
+</body>
+</html>
